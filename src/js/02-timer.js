@@ -48,6 +48,7 @@ function onCheck(selectedDate) {
 }
 }
 
+// * активная/неактивная кнопка/поле
 function ActiveBtn(){
   refs.btnStartEl.removeAttribute("disabled", "true");
   refs.btnStartEl.classList.remove('disabled');

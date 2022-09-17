@@ -75,9 +75,15 @@ span {
     background-color: rgb(157, 219, 223);
 }
 
-.disabled > button:focus,
-.disabled > button:hover,
-.disabled > input:hover,
-.disabled > input:focus {
+.disabled:focus,
+.disabled:hover,
+.disabled:hover,
+.disabled:focus {
   border-color: rgb(190, 226, 235);
+}
+
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 20px;
 }
