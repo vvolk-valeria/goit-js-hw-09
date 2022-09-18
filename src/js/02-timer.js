@@ -2,6 +2,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 require("flatpickr/dist/themes/dark.css");
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {onActiveElement, onNotActiveElement} from './active-elem'
 
 const LOCAL_KEY = 'selectedDate';
 
@@ -34,32 +35,18 @@ flatpickr("#datetime-picker", options);
 refs.btnStartEl.addEventListener('click', startTimer);
 
 //* активная/неактивная кнопка Start, поле даты
-notActiveBtn();
+onNotActiveElement(refs.btnStartEl);
 function onCheck(selectedDate) { 
   if (selectedDate < options.defaultDate) {
-    notActiveBtn();
+    onNotActiveElement(refs.btnStartEl);
     // window.alert("Please choose a date in the future"); 
     Notify.failure('Please choose a date in the future', {timeout: 2000, width: '360px'});
     // localRemoveDate(selectedDate);
     localRemoveDate(LOCAL_KEY);
   } else {
     localSaveDate(LOCAL_KEY, selectedDate);
-    ActiveBtn();
+    onActiveElement(refs.btnStartEl);
 }
-}
-
-// * активная/неактивная кнопка/поле
-function ActiveBtn(){
-  refs.btnStartEl.removeAttribute("disabled", "true");
-  refs.btnStartEl.classList.remove('disabled');
-}
-function notActiveBtn(){
-  refs.btnStartEl.setAttribute("disabled", "true");
-  refs.btnStartEl.classList.add('disabled');
-}
-function notActiveInput(){
-  refs.inputEl.setAttribute("disabled", "true");
-  refs.inputEl.classList.add('disabled');
 }
 
 //* локальное хранилище
@@ -84,8 +71,8 @@ function startTimer(selectedDates) {
   }
     else {
 
-    notActiveBtn();
-    notActiveInput();
+    onNotActiveElement(refs.btnStartEl);
+    onNotActiveElement(refs.inputEl);
     localRemoveDate(LOCAL_KEY);  
     // console.log('savedTime', savedTime);
     // console.log('Date.now()', Date.now());
@@ -140,8 +127,26 @@ function addLeadingZero(value) {
 
 
 
-
-
-
+// * активный/неактивный елемент (кнопка/поле)
+// function onActiveElement(elem){
+//   elem.removeAttribute("disabled", "true");
+//   elem.classList.remove('disabled');
+// }
+// function onNotActiveElement(elem){
+//   elem.setAttribute("disabled", "true");
+//   elem.classList.add('disabled');
+// }
+// function onNotActiveInput(elem){
+//   elem.setAttribute("disabled", "true");
+//   elem.classList.add('disabled');
+// }
+// function onNotActiveBtn(){
+//   refs.btnStartEl.setAttribute("disabled", "true");
+//   refs.btnStartEl.classList.add('disabled');
+// }
+// function onNotActiveInput(){
+//   refs.inputEl.setAttribute("disabled", "true");
+//   refs.inputEl.classList.add('disabled');
+// }
 
 

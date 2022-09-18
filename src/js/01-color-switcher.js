@@ -1,3 +1,4 @@
+import {onActiveElement, onNotActiveElement} from './active-elem'
 
 const refs = {
     btnStartEl: document.querySelector('button[data-start]'),
@@ -15,15 +16,21 @@ refs.btnStopEl.addEventListener('click', onStopChangeColorClick);
 let timerId;
 let isActive = false;
 
-ActiveBtn();
+// ActiveBtn();
+
+onActiveElement(refs.btnStartEl);
+onNotActiveElement(refs.btnStopEl);
 
 function onStartChangeColorClick() {
     if (isActive) { 
         return;
     }
     // console.log('Start');
-    isActive = true;
-    notActiveBtn();
+  isActive = true;
+  
+    // notActiveBtn();
+onActiveElement(refs.btnStopEl);
+onNotActiveElement(refs.btnStartEl);
     timerId = setInterval(() => {
     let randomColor = getRandomHexColor();  
     // console.log('time', Date.now());
@@ -33,8 +40,11 @@ function onStartChangeColorClick() {
 }
 
 function onStopChangeColorClick() {
-    isActive = false;
-    ActiveBtn();
+  isActive = false;
+  
+  // ActiveBtn();
+  onActiveElement(refs.btnStartEl);
+  onNotActiveElement(refs.btnStopEl);
     // console.log('Stop');
     clearInterval(timerId);
 }
@@ -43,20 +53,19 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-function ActiveBtn(){
-  refs.btnStartEl.removeAttribute("disabled", "true");
-  refs.btnStartEl.classList.remove('disabled');
+// function ActiveBtn(){
+//   refs.btnStartEl.removeAttribute("disabled", "true");
+//   refs.btnStartEl.classList.remove('disabled');
     
-  refs.btnStopEl.setAttribute("disabled", "true");    
-  refs.btnStopEl.classList.add('disabled');
+//   refs.btnStopEl.setAttribute("disabled", "true");    
+//   refs.btnStopEl.classList.add('disabled');
 
-}
-function notActiveBtn(){
-  refs.btnStartEl.setAttribute("disabled", "true");
-  refs.btnStartEl.classList.add('disabled');
+// }
+// function notActiveBtn(){
+//   refs.btnStartEl.setAttribute("disabled", "true");
+//   refs.btnStartEl.classList.add('disabled');
 
-  refs.btnStopEl.removeAttribute("disabled", "true");    
-  refs.btnStopEl.classList.remove('disabled');
-}
-
+//   refs.btnStopEl.removeAttribute("disabled", "true");    
+//   refs.btnStopEl.classList.remove('disabled');
+// }
 
