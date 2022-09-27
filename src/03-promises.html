@@ -6,25 +6,29 @@
     <title>Promise generator</title>
     <link rel="stylesheet" href="css/common.css" />
   </head>
-  <body>
-    <p><a href="index.html">Go back</a></p>
+  <body class="body">
+    <section class="container">
+      <p><a href="index.html">Go back</a></p>
 
-    <form class="form">
-      <label class="form-label">
-        First delay (ms)
-        <input type="number" name="delay" required />
-      </label>
-      <label class="form-label">
-        Delay step (ms)
-        <input type="number" name="step" required />
-      </label>
-      <label class="form-label">
-        Amount
-        <input type="number" name="amount" required />
-      </label>
-      <button type="submit">Create promises</button>
-    </form>
+      <h1>Генератор промисов</h1>
+      <p class="text">Через какое-то время("First delay") с задержкой в "Delay step" произойдет/не произойдет обещания в количестве "Amount".</p>
 
+      <form class="form">
+        <label class="form-label">
+          First delay (ms)
+          <input type="number" name="delay" required />
+        </label>
+        <label class="form-label">
+          Delay step (ms)
+          <input type="number" name="step" required />
+        </label>
+        <label class="form-label">
+          Amount
+          <input type="number" name="amount" required />
+        </label>
+        <button type="submit">Create promises</button>
+      </form>
+    </section>
     <script src="js/03-promises.js" type="module"></script>
   </body>
 </html>

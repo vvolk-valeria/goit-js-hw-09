@@ -7,14 +7,38 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
-  line-height: 1.5;
+  line-height: 1.5;  
+  color: #212121;  
+}
+
+.body {
+  background: linear-gradient(320deg, rgba(34, 72, 195, 0.79) 24%, rgba(45, 248, 253, 0.77) 49%, rgba(217, 253, 45, 0.77) 85%);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  margin-left: 35px;
+  margin-top: 25px;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+.list {
+  margin-top: 60px;
+  margin-right: 40px;
+}
+
+.item {
+margin-bottom: 10px;
+}
+
+.text {
+  margin-bottom: 20px;
 }
 
 button {
@@ -82,8 +106,18 @@ span {
   border-color: rgb(190, 226, 235);
 }
 
+.form {
+  width: 400px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: rgba(190, 245, 242, 0.459);
+}
 
 .form-label {
   display: inline-block;
   margin-bottom: 20px;
+  margin-right: 10px;
 }
